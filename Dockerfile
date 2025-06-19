@@ -37,4 +37,8 @@ ENTRYPOINT [ "java", \
    "-jar", "webgoat.jar", "--server.address", "0.0.0.0" ]
 
 HEALTHCHECK --interval=5s --timeout=3s \
+# Mend traceability labels
+LABEL io.mend.image.dockerfile.path=main/Dockerfile
+LABEL org.opencontainers.image.source=https://github.com/Mend-DemoCorp/WebGoat-Demo
+
   CMD curl --fail http://localhost:8080/WebGoat/actuator/health || exit 1
